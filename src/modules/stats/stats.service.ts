@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Stats, StatsDocument } from '../../shemas/stats.schema';
+import { StatsMutants, StatsDocument } from '../../shemas/stats.schema';
 import { Model } from 'mongoose';
 import { StatsResponse } from '../../dto/stats.dto';
 import { AppConstants } from '../../utils/constants';
@@ -9,7 +9,7 @@ import { AppConstants } from '../../utils/constants';
 export class StatsService {
 
     constructor(
-        @InjectModel(Stats.name) private statsModel: Model<StatsDocument>
+        @InjectModel(StatsMutants.name) private statsModel: Model<StatsDocument>
       ) {}
 
     async stats(): Promise<StatsResponse> {

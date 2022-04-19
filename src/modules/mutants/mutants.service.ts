@@ -6,13 +6,13 @@ import { Mutant, MutantDocument } from '../../shemas/mutants.shema';
 import { AppConstants } from '../../utils/constants';
 import { validateDna } from '../../utils/mutantsHelper';
 import { Model } from 'mongoose';
-import { Stats, StatsDocument } from '../../shemas/stats.schema';
+import { StatsMutants, StatsDocument } from '../../shemas/stats.schema';
 
 @Injectable()
 export class MutantsService {
     constructor(
       @InjectModel(Mutant.name) private mutantModel: Model<MutantDocument>,
-      @InjectModel(Stats.name) private statsModel: Model<StatsDocument>
+      @InjectModel(StatsMutants.name) private statsModel: Model<StatsDocument>
     ) {}
 
     async isMutant(mutant: MutantDTO): Promise<MutantResponse> {

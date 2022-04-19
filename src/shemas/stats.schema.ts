@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type StatsDocument = Stats & Document;
+export type StatsDocument = StatsMutants & Document;
 
 @Schema()
-export class Stats {
+export class StatsMutants {
   @Prop()
   count_mutant_dna: number;
 
@@ -15,4 +15,4 @@ export class Stats {
   ratio: number;
 }
 
-export const StatsSchema = SchemaFactory.createForClass(Stats);
+export const StatsSchema = SchemaFactory.createForClass(StatsMutants);

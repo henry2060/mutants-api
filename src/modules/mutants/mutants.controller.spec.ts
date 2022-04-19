@@ -2,8 +2,6 @@ import { Res } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MutantResponse } from 'src/dto/mutantResponse.dto';
-import { Mutant, MutantSchema } from '../../shemas/mutants.shema';
-import { Stats, StatsSchema } from '../../shemas/stats.schema';
 import { MutantsController } from './mutants.controller';
 import { MutantsService } from './mutants.service';
 

@@ -1,7 +1,7 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { StatsResponse } from 'src/dto/stats.dto';
-import { Stats } from '../../shemas/stats.schema';
+import { StatsMutants } from '../../shemas/stats.schema';
 import { StatsService } from './stats.service';
 
 const mockRepositoryStats = {
@@ -13,7 +13,7 @@ const mockStats = (
   count_mutant_dna= 1,
   count_human_dna= 1,
   ratio= 1 
-): Stats => ({
+): StatsMutants => ({
   count_mutant_dna,
   count_human_dna,
   ratio
@@ -26,7 +26,7 @@ describe('StatsService', () => {
       providers: [
         StatsService,
         {
-          provide: getModelToken(Stats.name),
+          provide: getModelToken(StatsMutants.name),
           useValue: {
             new: jest.fn().mockResolvedValue(mockStats()),
             constructor: jest.fn().mockResolvedValue(mockStats()),

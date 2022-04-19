@@ -1,7 +1,7 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Mutant, MutantDocument } from '../../shemas/mutants.shema';
-import { Stats, StatsDocument } from '../../shemas/stats.schema';
+import { StatsMutants, StatsDocument } from '../../shemas/stats.schema';
 import { MutantsService } from './mutants.service';
 import { Model } from 'mongoose';
 import { HttpException } from '@nestjs/common';
@@ -19,7 +19,7 @@ describe('MutantsService', () => {
     count_mutant_dna= 1,
     count_human_dna= 1,
     ratio= 1 
-  ): Stats => ({
+  ): StatsMutants => ({
     count_mutant_dna,
     count_human_dna,
     ratio
@@ -39,7 +39,7 @@ describe('MutantsService', () => {
           },
         },
         {
-          provide: getModelToken(Stats.name),
+          provide: getModelToken(StatsMutants.name),
           useValue: {
             new: jest.fn().mockResolvedValue(mockStats()),
             constructor: jest.fn().mockResolvedValue(mockStats()),
@@ -128,7 +128,7 @@ describe('MutantsService', () => {
           },
         },
         {
-          provide: getModelToken(Stats.name),
+          provide: getModelToken(StatsMutants.name),
           useValue: {
             new: jest.fn().mockResolvedValue(mockStats()),
             constructor: jest.fn().mockResolvedValue(mockStats()),
