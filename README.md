@@ -11,7 +11,9 @@ db.createColettion('mutants')
 db.createColettion('statsmutants')
 db.statsmutants.insertOne({"dna": "ATGCGACAGTGCTTATGTAGAAGGCCCCTACCACTG"})
 db.statsmutants.insertOne({"dna": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"})
-db.sta
+db.statsmutants.insertOne({"\_id": "625ddab5a8e642ef3b8d785b", "count_mutant_dna": 1, "count_human_dna": 1, "ratio": 1})
+
+````
 
 ## Installation
 
@@ -41,10 +43,6 @@ $ npm run test
 # test coverage
 $ npm run test:cov
 ```
-
-tsmutants.insertOne({"\_id": "625ddab5a8e642ef3b8d785b", "count_mutant_dna": 1, "count_human_dna": 1, "ratio": 1})
-
-````
 
 ## Path
 
