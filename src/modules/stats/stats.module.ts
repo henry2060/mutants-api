@@ -6,9 +6,11 @@ import { StatsService } from './stats.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: StatsMutants.name, schema: StatsSchema }])
+    MongooseModule.forFeature([
+      { name: StatsMutants.name, schema: StatsSchema },
+    ]),
   ],
   controllers: [StatsController],
-  providers: [StatsService]
+  providers: [StatsService],
 })
 export class StatsModule {}

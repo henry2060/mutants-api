@@ -5,8 +5,8 @@ import { ConfigService } from './config.service';
 @Module({
   providers: [
     {
-        provide: ConfigService,
-        useValue: new ConfigService(),
+      provide: ConfigService,
+      useValue: new ConfigService(),
     },
   ],
   exports: [ConfigService],

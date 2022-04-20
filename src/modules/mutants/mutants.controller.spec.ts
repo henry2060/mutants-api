@@ -5,7 +5,7 @@ import { MutantResponse } from 'src/dto/mutantResponse.dto';
 import { MutantsController } from './mutants.controller';
 import { MutantsService } from './mutants.service';
 
-jest.mock('./mutants.service.ts')
+jest.mock('./mutants.service.ts');
 
 describe('MutantsController', () => {
   let controller: MutantsController;
@@ -25,17 +25,10 @@ describe('MutantsController', () => {
 
   it('Post mutants', () => {
     const input = {
-      dna: [
-        "FFFFFF",
-        "FFPFFF",
-        "FPFFFF",
-        "FFFPFF",
-        "PFFFFF",
-        "PFFFFF"
-      ]
-    }
-    const mutantResponse: MutantResponse = {isMutant:true}
-    controller.isMutant(mutantResponse,input)
+      dna: ['FFFFFF', 'FFPFFF', 'FPFFFF', 'FFFPFF', 'PFFFFF', 'PFFFFF'],
+    };
+    const mutantResponse: MutantResponse = { isMutant: true };
+    controller.isMutant(mutantResponse, input);
     expect(controller).toBeDefined();
   });
 });

@@ -17,8 +17,8 @@ describe('ConfigService', () => {
   });
 
   it('should be defined', () => {
-    service.get('MONGODB_URI')
-    service.getMongoConfig()
+    service.get('MONGODB_URI');
+    service.getMongoConfig();
     expect(service).toBeDefined();
   });
 });

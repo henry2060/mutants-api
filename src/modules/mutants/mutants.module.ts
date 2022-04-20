@@ -8,9 +8,11 @@ import { MutantsService } from './mutants.service';
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Mutant.name, schema: MutantSchema }]),
-    MongooseModule.forFeature([{ name: StatsMutants.name, schema: StatsSchema }])
+    MongooseModule.forFeature([
+      { name: StatsMutants.name, schema: StatsSchema },
+    ]),
   ],
   controllers: [MutantsController],
-  providers: [MutantsService]
+  providers: [MutantsService],
 })
 export class MutantsModule {}

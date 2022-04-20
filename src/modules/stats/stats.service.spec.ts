@@ -7,16 +7,16 @@ import { StatsService } from './stats.service';
 const mockRepositoryStats = {
   findById() {
     return {};
-  }
-}
+  },
+};
 const mockStats = (
-  count_mutant_dna= 1,
-  count_human_dna= 1,
-  ratio= 1 
+  count_mutant_dna = 1,
+  count_human_dna = 1,
+  ratio = 1,
 ): StatsMutants => ({
   count_mutant_dna,
   count_human_dna,
-  ratio
+  ratio,
 });
 describe('StatsService', () => {
   let service: StatsService;
@@ -33,7 +33,7 @@ describe('StatsService', () => {
             findById: jest.fn().mockResolvedValue(mockStats()),
             findByIdAndUpdate: jest.fn(),
           },
-        }
+        },
       ],
     }).compile();
 
@@ -45,7 +45,7 @@ describe('StatsService', () => {
   });
 
   it('return stats', () => {
-    service.stats()
+    service.stats();
     expect(service).toBeDefined();
   });
 });

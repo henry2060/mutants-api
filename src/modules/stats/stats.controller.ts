@@ -4,11 +4,11 @@ import { StatsService } from './stats.service';
 
 @Controller()
 export class StatsController {
-    constructor(private statsService: StatsService) {}
+  constructor(private statsService: StatsService) {}
 
   @Get('/stats')
   async stats(@Res() res): Promise<StatsResponse> {
-    const result = await this.statsService.stats()
-    return  res.status(HttpStatus.OK).send(result);
+    const result = await this.statsService.stats();
+    return res.status(HttpStatus.OK).send(result);
   }
 }

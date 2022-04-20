@@ -12,8 +12,9 @@ import { MongooseModule } from '@nestjs/mongoose';
     ConfigModule,
     MongooseModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => configService.getMongoConfig(),
-  }),
+      useFactory: async (configService: ConfigService) =>
+        configService.getMongoConfig(),
+    }),
   ],
   controllers: [],
   providers: [],

@@ -1,4 +1,3 @@
 export class MutantResponse {
-    isMutant: boolean;
-  }
-  
+  isMutant: boolean;
+}

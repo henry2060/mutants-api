@@ -1,6 +1,5 @@
 export class StatsResponse {
-    count_mutant_dna: number
-    count_human_dna: number
-    ratio: number
-  }
-  
+  count_mutant_dna: number;
+  count_human_dna: number;
+  ratio: number;
+}

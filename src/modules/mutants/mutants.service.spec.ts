@@ -10,19 +10,19 @@ describe('MutantsService', () => {
   let service: MutantsService;
 
   const mockMutant = (
-    dna = 'ATGCGACAGTGCTTATGTAGAAGGCCCCTACCACTG'
+    dna = 'ATGCGACAGTGCTTATGTAGAAGGCCCCTACCACTG',
   ): Mutant => ({
-    dna
+    dna,
   });
 
   const mockStats = (
-    count_mutant_dna= 1,
-    count_human_dna= 1,
-    ratio= 1 
+    count_mutant_dna = 1,
+    count_human_dna = 1,
+    ratio = 1,
   ): StatsMutants => ({
     count_mutant_dna,
     count_human_dna,
-    ratio
+    ratio,
   });
 
   beforeEach(async () => {
@@ -46,7 +46,7 @@ describe('MutantsService', () => {
             findById: jest.fn().mockResolvedValue(mockStats()),
             findByIdAndUpdate: jest.fn(),
           },
-        }
+        },
       ],
     }).compile();
 
@@ -60,57 +60,36 @@ describe('MutantsService', () => {
 
   it('isMutant true', async () => {
     const input = {
-      dna: [
-        "ATGCGA",
-        "CAGTGC",
-        "TTATGT",
-        "AGAAGG",
-        "CCCCTA",
-        "CCACTG"
-      ]
-    }
-    const result = await service.isMutant(input)
-    expect(result).toStrictEqual({ isMutant: true })
+      dna: ['ATGCGA', 'CAGTGC', 'TTATGT', 'AGAAGG', 'CCCCTA', 'CCACTG'],
+    };
+    const result = await service.isMutant(input);
+    expect(result).toStrictEqual({ isMutant: true });
   });
   it('isMutant false', async () => {
     const input = {
-      dna: [
-        "FFFFFF",
-        "FFPFFF",
-        "FPFFFF",
-        "FFFPFF",
-        "PFFFFF",
-        "PFFFFF"
-      ]
-    }
-    const result = await service.isMutant(input)
-    expect(result).toStrictEqual({ isMutant: false })
+      dna: ['FFFFFF', 'FFPFFF', 'FPFFFF', 'FFFPFF', 'PFFFFF', 'PFFFFF'],
+    };
+    const result = await service.isMutant(input);
+    expect(result).toStrictEqual({ isMutant: false });
   });
   it('isMutant error in matrix dimension', async () => {
     const input = {
-      dna: [
-        "FFFFFF",
-        "FFPFFF",
-        "FPFFFF",
-      ]
-    }
+      dna: ['FFFFFF', 'FFPFFF', 'FPFFFF'],
+    };
     try {
-      await service.isMutant(input)
+      await service.isMutant(input);
     } catch (error) {
-      expect(error).toBeInstanceOf(HttpException)
+      expect(error).toBeInstanceOf(HttpException);
     }
   });
   it('isMutant error dimension dna invalid', async () => {
     const input = {
-      dna: [
-        "FF",
-        "FF"
-      ]
-    }
+      dna: ['FF', 'FF'],
+    };
     try {
-      await service.isMutant(input)
+      await service.isMutant(input);
     } catch (error) {
-      expect(error).toBeInstanceOf(HttpException)
+      expect(error).toBeInstanceOf(HttpException);
     }
   });
 
@@ -135,25 +114,18 @@ describe('MutantsService', () => {
             findById: jest.fn().mockResolvedValue(mockStats()),
             findByIdAndUpdate: jest.fn(),
           },
-        }
+        },
       ],
     }).compile();
 
     service = module.get<MutantsService>(MutantsService);
     const input = {
-      dna: [
-        "ATGCGA",
-        "CAGTGC",
-        "TTATGT",
-        "AGAAGG",
-        "CCCCTA",
-        "CCACTG"
-      ]
-    }
+      dna: ['ATGCGA', 'CAGTGC', 'TTATGT', 'AGAAGG', 'CCCCTA', 'CCACTG'],
+    };
     try {
-      await service.isMutant(input)
+      await service.isMutant(input);
     } catch (error) {
-      expect(error).toBeInstanceOf(HttpException)
+      expect(error).toBeInstanceOf(HttpException);
     }
   });
 });

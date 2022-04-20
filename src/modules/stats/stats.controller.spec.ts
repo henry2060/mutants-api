@@ -3,8 +3,7 @@ import { StatsResponse } from 'src/dto/stats.dto';
 import { StatsController } from './stats.controller';
 import { StatsService } from './stats.service';
 
-
-jest.mock('./stats.service.ts')
+jest.mock('./stats.service.ts');
 
 describe('StatsController', () => {
   let controller: StatsController;
@@ -13,7 +12,7 @@ describe('StatsController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [StatsController],
-      providers: [StatsService]
+      providers: [StatsService],
     }).compile();
 
     controller = module.get<StatsController>(StatsController);
@@ -24,12 +23,12 @@ describe('StatsController', () => {
   });
 
   it('Get stats', () => {
-    const res:StatsResponse={
-      count_mutant_dna:1,
+    const res: StatsResponse = {
+      count_mutant_dna: 1,
       count_human_dna: 1,
-      ratio: 1 
-    }
-    controller.stats(res)
+      ratio: 1,
+    };
+    controller.stats(res);
     expect(controller).toBeDefined();
   });
 });
