@@ -1,19 +1,16 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { StatsResponse } from 'src/dto/stats.dto';
+
 import { StatsMutants } from '../../shemas/stats.schema';
 import { StatsService } from './stats.service';
 
-const mockRepositoryStats = {
-  findById() {
-    return {};
-  },
-};
 const mockStats = (
+  _id = '625ddab5a8e642ef3b8d785b',
   count_mutant_dna = 1,
   count_human_dna = 1,
   ratio = 1,
 ): StatsMutants => ({
+  _id,
   count_mutant_dna,
   count_human_dna,
   ratio,
