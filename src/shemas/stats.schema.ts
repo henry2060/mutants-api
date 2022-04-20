@@ -6,6 +6,9 @@ export type StatsDocument = StatsMutants & Document;
 @Schema()
 export class StatsMutants {
   @Prop()
+  _id: string;
+
+  @Prop()
   count_mutant_dna: number;
 
   @Prop()
